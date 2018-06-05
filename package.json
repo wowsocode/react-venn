@@ -1,0 +1,59 @@
+{
+  "name": "react-venn",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "server": "babel-node index.js",
+    "client": "webpack --config webpack.config.js --display-error-details --watch --colors src/client/index.jsx",
+    "sass": "node-sass src/client/sass/app.scss -o dist/css/ --include-path src/sass --include-path node_modules/animatewithsass -w",
+    "css": "postcss dist/css/app.css -o dist/css/app.min.css -c postcss.config.js -w",
+    "start": "concurrently -p 'React Venn sandbox' 'npm run server' 'npm run client' 'npm run sass' 'npm run css'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wowsocode/react-venn.git"
+  },
+  "keywords": [
+    "d3",
+    "react",
+    "venn"
+  ],
+  "author": "@wowsocode",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wowsocode/react-venn/issues"
+  },
+  "homepage": "https://github.com/wowsocode/react-venn#readme",
+  "dependencies": {
+    "animatewithsass": "^3.2.1",
+    "autoprefixer": "^8.1.0",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "classnames": "^2.2.5",
+    "concurrently": "^3.5.1",
+    "cssnano": "^3.10.0",
+    "d3-selection": "^1.3.0",
+    "d3-transition": "^1.1.1",
+    "escape-string-regexp": "^1.0.5",
+    "express": "^4.16.2",
+    "fecha": "^2.3.3",
+    "fmin": "0.0.2",
+    "node-sass": "^4.9.0",
+    "path": "^0.12.7",
+    "postcss": "^6.0.19",
+    "postcss-cli": "^5.0.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "webpack": "^4.1.1",
+    "webpack-cli": "^2.0.11"
+  },
+  "devDependencies": {
+    "webpack-bundle-analyzer": "^2.11.1"
+  }
+}
