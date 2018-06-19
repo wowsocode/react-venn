@@ -63,8 +63,7 @@ class Venn extends React.Component {
 
 
         function chart(selection) {
-            var data = selection.datum();
-
+            var data = self.props.data
             // handle 0-sized sets by removing from input
             var toremove = {};
             data.forEach(function(datum) {
@@ -81,7 +80,7 @@ class Venn extends React.Component {
 
             if (data.length > 0) {
                 var solution = layoutFunction(data, {lossFunction: loss});
-                console.log(layoutFunction)
+
                 if (normalize) {
                     solution = normalizeSolution(solution,
                                                 orientation,
@@ -109,7 +108,8 @@ class Venn extends React.Component {
                     return '' + d.sets[0];
                 }
             }
-
+            let m = selection.selectAll('svg').data([circles])
+            console.log(m)
             // create svg if not already existing
             selection.selectAll('svg').data([circles]).enter().append('svg');
 
@@ -532,13 +532,12 @@ class Venn extends React.Component {
 
     componentDidMount() {
         let chart = this.vennDiagram()
-        select('#venn').datum(this.testData).call(chart)
+        select('#venn').call(chart)
     }
 
     render() {
-
         return (
-            <div id='venn' />
+            <div id='venn'/>
         )
     }
 }
