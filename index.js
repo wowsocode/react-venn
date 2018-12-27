@@ -1,4 +1,4 @@
-require('babel-core/register')
+require('@babel/register')
 
 import express from 'express'
 import http from 'http'

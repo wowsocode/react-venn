@@ -20,12 +20,14 @@ module.exports = {
                 include: [
                     path.resolve(__dirname, 'src/client/')
                 ],
+                exclude: [
+                    /node_modules/
+                ],
                 use: [
                     {
                         loader: 'babel-loader',
                         options: {
-                            presets: [ 'react', 'env' ],
-                            plugins: ['transform-object-rest-spread', 'transform-class-properties']
+                            presets: [ '@babel/react', '@babel/preset-env' ],
                         }
                     }
                 ],
@@ -43,7 +45,7 @@ module.exports = {
             '.jsx'
         ]
     },
-    mode: 'production',
+    mode: 'development',
     plugins: [
         new webpack.LoaderOptionsPlugin({ minimize: true, debug: false }),
         // new analyze()
